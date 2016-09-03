@@ -4597,6 +4597,8 @@ static _H<NSMutableSet> Diversions_;
 
 - (NSArray *) getDisplayIdentifiers {
     NSSet *set([SBSCopyApplicationDisplayIdentifiers() autorelease]);
+    if ([set isKindOfClass:[NSArray class]])
+        return set;
     if (set == nil || ![set isKindOfClass:[NSSet class]])
         return [NSArray array];
     return [set allObjects];
